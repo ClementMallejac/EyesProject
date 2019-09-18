@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  db:
+    build: 
+      context: ./db
+    ports: 
+      - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links: 
+      - db
+    ports: 
+      - "80:80"
