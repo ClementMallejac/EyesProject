@@ -6,6 +6,8 @@ services:
       context: ./db
     ports: 
       - "3306:3306"
+    volumes: 
+      - ./db/data:/var/lib/mysql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -13,3 +15,7 @@ services:
       - db
     ports: 
       - "80:80"
+
+volumes:
+  dbdata:
+
