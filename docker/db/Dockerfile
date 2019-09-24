@@ -1,7 +1,5 @@
 FROM  mariadb:latest
 
-WORKDIR .
-
 ENV MYSQL_ROOT_PASSWORD root
 ENV MYSQL_DATABASE eyesproject
 ENV MYSQL_USER ep_user

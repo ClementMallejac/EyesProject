@@ -1,0 +1,35 @@
+.home {
+  overflow: hidden auto;
+  width: calc(100% - 80px);
+  height: 100%;
+  padding: 0 40px;
+}
+.home .home__wrapper {
+  max-width: 800px;
+  width: 100%;
+  min-height: 100%;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+.home .home__wrapper .home__picture {
+  display: block;
+  margin: 30px auto 0;
+}
+.home .home__wrapper .home__picture--logo {
+  width: 254px;
+  height: 240px;
+}
+.home .home__wrapper .home__title {
+  margin: 30px auto 0;
+}
+.home .home__wrapper .home__presentation {
+  margin: 20px auto 0;
+}
+.home .home__wrapper .home__button {
+  margin: 20px auto;
+}
+
+/*# sourceMappingURL=home.css.map */
