@@ -1,6 +1,4 @@
 @import 'comps/mixins';
-
-
 html,
 body {
     margin: 0;
@@ -13,39 +11,30 @@ body.show-dot {
     }
 }
 
-
 .button {
     @include reset-link;
     $btn-height: 50px;
     $btn-width: 250px;
-
-
     display: block;
     width: $btn-width;
     height: $btn-height;
-
     outline: green solid 1px;
     color: green;
     font-size: 18px;
     text-align: center;
     line-height: $btn-height;
-
     transition: all .25s;
-
     @media (hover: hover) {
         &:hover {
             // effet rollover
             width: $btn-width - 5px;
         }
     }
-
     &--large {
         $btn-height: 50px;
         $btn-width: 300px;
-
         width: $btn-width;
         height: $btn-height;
-
         @media (hover: hover) {
             &:hover {
                 // effet rollover
@@ -54,5 +43,3 @@ body.show-dot {
         }
     }
 }
-
-
