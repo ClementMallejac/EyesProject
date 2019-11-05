@@ -2,12 +2,18 @@ PImage origImage, maskImage, blurImage, blurRect, blockImage;
 PGraphics mask;
 PGraphics block;
 
+import processing.net.*;
+String HTTP_HEADER = "HTTP/1.0 200 OK\nContent-Type: text/html\n\n";
+Server s;
+Client c;
+
 int[] tableauX={100, 150, 126, 456, 55, 589};
 int[] tableauY={20, 555, 245, 400, 125, 125};
 
 
 void setup() {
   size(600, 400);
+  s = new Server(this, 8080);
 
   //Load Image Original
   origImage = loadImage("quimper.jpg");
@@ -32,6 +38,15 @@ void setup() {
 }
 
 void draw() {
+  
+  c = s.available();
+  if (c != null) {
+    String msgClient=c.readString();
+    println(msgClient);
+    s.write(HTTP_HEADER);
+    s.write("<html><head><meta charset='utf-8'><title>Processing</title></head><body><h3>Ok cela fonctionne</h3><p>Le serveur a bien répondu à la requête HTTP</p></body></html>");
+    c.stop();
+  }
   
   image(blurImage, 0, 0);
   mask.beginDraw();
