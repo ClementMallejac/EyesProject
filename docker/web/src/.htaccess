@@ -4,9 +4,11 @@ DirectoryIndex pages/index.php
 
 RewriteEngine on
 
+# /new-session
 RewriteRule  ^new-session$ pages/new-session.php
+# /api/form
+RewriteRule  ^api/form$ api/form.php
 
-RewriteRule  ^callibration$ pages/webgazer-callibration.php
 
 
 # RewriteCond %{REQUEST_FILENAME}  -d

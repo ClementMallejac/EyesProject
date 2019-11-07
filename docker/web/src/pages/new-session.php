@@ -18,7 +18,7 @@
     </div>
     <div class='main'>
         <div class='formulaire'>
-            <form action="">
+            <form action="/api/form">
                 <fieldset>
                     <div class='formulaire__row'>
                         <div class='formulaire__element'>
@@ -46,21 +46,23 @@
                         </div>
                     </div>
                     <div class='formulaire__row'>
-                        <label class='formulaire__label' for='form_sexe'>Sexe</label>
+                        <label class='formulaire__label' for='form_sex'>Sexe</label>
                         <div class='formulaire__element formulaire__element--choice'>
-                            <input class='formulaire__input formulaire__input--radio' id='form_male' name='sexe' type="radio">
+                            <input class='formulaire__input formulaire__input--radio' id='form_male' name='sex' type="radio" checked>
                             <label class='formulaire__label' for='form_male'>Masculin</label>
                         </div>
                         <div class='formulaire__element formulaire__element--choice'>
-                            <input class='formulaire__input formulaire__input--radio' id='form_female' name='sexe' type="radio">
+                            <input class='formulaire__input formulaire__input--radio' id='form_female' name='sex' type="radio">
                             <label class='formulaire__label' for='form_female'>Feminin</label>
                         </div>
                     </div>
-                    <button type="submit" form="form1">Envoyer</button>
+                    <button type="submit">Envoyer</button>
                 </fieldset>
             </form>
         </div>
     </div>
 </body>
+<script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+<script src="/js/send-form.js"></script>
 
 </html>
