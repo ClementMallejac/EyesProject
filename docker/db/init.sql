@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Sep 18, 2019 at 01:05 PM
+-- Generation Time: Nov 07, 2019 at 06:01 PM
 -- Server version: 10.4.7-MariaDB-1:10.4.7+maria~bionic
 -- PHP Version: 7.2.22
 
@@ -29,8 +29,6 @@ USE `EyesProject`;
 --
 -- Table structure for table `Image`
 --
--- Creation: Sep 18, 2019 at 01:01 PM
---
 
 DROP TABLE IF EXISTS `Image`;
 CREATE TABLE `Image` (
@@ -45,8 +43,6 @@ CREATE TABLE `Image` (
 
 --
 -- Table structure for table `ImageReconstruite`
---
--- Creation: Sep 18, 2019 at 12:56 PM
 --
 
 DROP TABLE IF EXISTS `ImageReconstruite`;
@@ -63,8 +59,6 @@ CREATE TABLE `ImageReconstruite` (
 --
 -- Table structure for table `Personne`
 --
--- Creation: Sep 18, 2019 at 12:56 PM
---
 
 DROP TABLE IF EXISTS `Personne`;
 CREATE TABLE `Personne` (
@@ -73,15 +67,13 @@ CREATE TABLE `Personne` (
   `nomPersonne` varchar(32) NOT NULL,
   `prenomPersonne` varchar(32) NOT NULL,
   `sexePersonne` tinyint(1) NOT NULL COMMENT '0: masculin, 1: feminin',
-  `age` tinyint(4) NOT NULL
+  `agePersonne` tinyint(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `Point`
---
--- Creation: Sep 18, 2019 at 12:56 PM
 --
 
 DROP TABLE IF EXISTS `Point`;
@@ -98,14 +90,12 @@ CREATE TABLE `Point` (
 --
 -- Table structure for table `Session`
 --
--- Creation: Sep 18, 2019 at 12:56 PM
---
 
 DROP TABLE IF EXISTS `Session`;
 CREATE TABLE `Session` (
   `idSession` int(11) NOT NULL,
   `dateSession` datetime NOT NULL DEFAULT current_timestamp() COMMENT 'la date de la session',
-  `dureeSession` int(10) UNSIGNED NOT NULL COMMENT 'duree de la session en secondes',
+  `dureeSession` int(10) UNSIGNED DEFAULT NULL COMMENT 'duree de la session en secondes',
   `idPersonne` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Informations sur une session';
 
@@ -113,8 +103,6 @@ CREATE TABLE `Session` (
 
 --
 -- Table structure for table `Visionnage`
---
--- Creation: Sep 18, 2019 at 12:56 PM
 --
 
 DROP TABLE IF EXISTS `Visionnage`;
@@ -210,35 +198,6 @@ ALTER TABLE `Session`
 --
 ALTER TABLE `Visionnage`
   MODIFY `idVisionnage` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `ImageReconstruite`
---
-ALTER TABLE `ImageReconstruite`
-  ADD CONSTRAINT `FK_IMAGERECONSTRUITE_VISIONNAGE` FOREIGN KEY (`idVisionnage`) REFERENCES `Visionnage` (`idVisionnage`);
-
---
--- Constraints for table `Point`
---
-ALTER TABLE `Point`
-  ADD CONSTRAINT `FK_POINT_VISIONNAGE` FOREIGN KEY (`idSession`) REFERENCES `Visionnage` (`idVisionnage`);
-
---
--- Constraints for table `Session`
---
-ALTER TABLE `Session`
-  ADD CONSTRAINT `FK_SESSION_PERSONNE` FOREIGN KEY (`idPersonne`) REFERENCES `Personne` (`idPersonne`);
-
---
--- Constraints for table `Visionnage`
---
-ALTER TABLE `Visionnage`
-  ADD CONSTRAINT `FK_VISIONNAGE_IMAGE` FOREIGN KEY (`idImage`) REFERENCES `Image` (`idImage`),
-  ADD CONSTRAINT `FK_VISIONNAGE_SESSION` FOREIGN KEY (`idSession`) REFERENCES `Session` (`idSession`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

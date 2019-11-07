@@ -6,8 +6,10 @@ RewriteEngine on
 
 # /new-session
 RewriteRule  ^new-session$ pages/new-session.php
+# /session
+RewriteRule  ^session$ pages/session.php
 # /api/form
-RewriteRule  ^api/form$ api/form.php
+RewriteRule  ^/api/form$ api/form.php
 
 
 
