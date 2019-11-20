@@ -68,3 +68,27 @@ void draw() {
 
   image(origImage, 0, 0);
 }
+
+// lancer server http et attendre requete (url quelconque)
+/*
+JSON sous la forme
+{
+  url: (url de l'image),
+  idVisionnage: #
+}
+ Decoder JSON avec processing: voir loadJSONObject()
+*/
+//recupérer url de l'image et idvisionnage
+
+
+// requete sql  : select * from point where idVisionnage = ??
+//Connexion à la base de données
+  
+// requette HTTP sur l'url envoyé -> renvoie l'image
+// HTTPClient
+
+
+// traitement de l'image sur processing 
+
+
+// envoie de l'image en HTTP sur /traitement/{nomImage}
